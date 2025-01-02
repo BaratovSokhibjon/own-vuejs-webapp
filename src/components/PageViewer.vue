@@ -9,7 +9,17 @@
 
 export default{
     name: "page-viewer",
-    props: ['page']
+    props: {
+        page: {
+            type: Object,
+            default() {
+                return {
+                    pageTitle: '',
+                    content: ''
+                }
+            }
+        }
+    }
 }
 
 </script>

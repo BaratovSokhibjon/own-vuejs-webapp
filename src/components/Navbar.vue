@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <li v-for="(page, index) in pages" :key="index" class="nav-link">
-                    <navbar-link :page="page" :is-active="activePage === index" @click.prevent="navLinkClick(index)" />
+                        <navbar-link :page="page" :is-active="activePage === index" @click.prevent="navLinkClick(index)" />
                     </li>
                 </div>
             </div>
@@ -32,7 +32,23 @@ export default {
     },
     
     name: 'navbar',
-    props: ['pages', 'activePage', 'navLinkClick'],
+    props: {
+        pages: {
+            type: Array,
+            default() {
+                return [];
+            }
+        },
+        activePage: {
+            type: Number,
+            default: 0
+        },
+        navLinkClick: {
+            type: Function,
+            required: true
+        }
+    },
+    
     data() {
         return {
             theme: 'light'

@@ -10,7 +10,22 @@
 <script>
 
 export default {
-    props: ['page', 'isActive'],
+    props: {
+        page: {
+            type: Object,
+            default() {
+                return {
+                    pageTitle: '',
+                    content: ''
+                }
+            }
+        },
+        isActive: {
+            type: Boolean,
+            default: false
+        }
+    },
+    
     computed: {
         activeClasses() {
             return {
