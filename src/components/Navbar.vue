@@ -48,16 +48,35 @@ export default {
             required: true
         }
     },
+
+    created() {
+        this.getThemeSetting();
+    },
     
     data() {
         return {
             theme: 'light'
         }
     },
+
     methods: {
         changeTheme() {
             this.theme = this.theme === 'light' ? 'dark' : 'light';
+            this.setThemeSetting();
+        },
+
+        setThemeSetting() {
+            localStorage.setItem('theme', this.theme)
+        },
+
+        getThemeSetting() {
+            let theme = localStorage.getItem('theme')
+
+            if (theme) {
+                this.theme = theme
+            }
         }
+
     }
 }
 
