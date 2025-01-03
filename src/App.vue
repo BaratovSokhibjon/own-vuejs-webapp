@@ -29,6 +29,10 @@ export default {
     navLinkClick: {
         type: Function,
         required: true
+    },
+    pageCreated: {
+      type: Function,
+      required: true
     }
   },
   created() {
@@ -47,8 +51,13 @@ export default {
       console.log(data)
       this.pages = data;
     },
+
     navLinkClick(index) {
       this.activePage = index;
+    },
+    
+    pageCreated(pageObj) {
+      console.log(pageObj);
     }
   }
 }
