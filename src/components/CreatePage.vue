@@ -5,18 +5,18 @@
         <label for="" class="form-label">
           Page Title
         </label>
-        <input type="text" class="form-control" :value="pageTitle" @input="(event) => pageTitle = event.target.value" />
+        <input type="text" class="form-control" v-model="pageTitle" :placeholder="titlePlaceholder" />
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">
           Page content
         </label>
-        <textarea type="text" class="form-control" rows="5"></textarea>
+        <textarea type="text" class="form-control" rows="5" v-model="content" :placeholder="contentPlaceholder"></textarea>
       </div>
 
       <div class="mb-3">
-        <button class="btn btn-primary" @click.prevent="pageCreated({pageTitle})">Create Page</button>
+        <button class="btn btn-primary" @click.prevent="pageCreated({pageTitle, content})">Create Page</button>
       </div>
     </form>
   </div>
@@ -30,6 +30,18 @@ export default {
             type: String,
             default: ""
         },
+        content: {
+            type: String,
+            default: ""
+        },
+        titlePlaceholder: {
+            type: String,
+            default: "Page Title"
+        },
+        contentPlaceholder: {
+            type: String,
+            default: "Page Content"
+        },
         pageCreated:{
             type: Function,
             required: true
@@ -37,12 +49,16 @@ export default {
     },
     data() {
         return{
-            pageTitle: ''
+            pageTitle: "",
+            content: "",
+            titlePlaceholder: "Page Title",
+            contentPlaceholder: "Page Content"
         }
     },
     methods: {
-        pageCreated(pageTitle) {
+        pageCreated(pageTitle, content) {
             console.log(pageTitle)
+            console.log(content)
         }
     }
 }
