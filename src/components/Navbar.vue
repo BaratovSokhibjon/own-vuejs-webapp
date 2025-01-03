@@ -64,7 +64,7 @@ export default {
             return this.pages.filter(page => page.published);
         }
     },
-
+    
     methods: {
         changeTheme() {
             this.theme = this.theme === 'light' ? 'dark' : 'light';

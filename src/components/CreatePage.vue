@@ -100,6 +100,14 @@ export default {
         isFormInvalid() {
             return !this.title || !this.content || !this.name || !this.url;
         }
+    },
+
+    watch: {
+        title(newTitle, oldTitle){
+            if (this.name === oldTitle ){
+                this.name = newTitle
+            }
+        }
     }
 }
 </script>
