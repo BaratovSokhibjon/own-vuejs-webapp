@@ -2,16 +2,19 @@
   {
     "title": "Home Title",
     "content": "Home Content",
-    "link": { "name": "Home", "url": "index.html" }
+    "link": { "name": "Home", "url": "index.html" },
+    "published": true
   },
   {
     "title": "About Title",
     "content": "About Content",
-    "link": { "name": "About", "url": "about.html" }
+    "link": { "name": "About", "url": "about.html" },
+    "published": true
   },
   {
     "title": "Contact Title",
     "content": "Contact Content",
-    "link": { "name": "Contact us", "url": "contacts.html" }
+    "link": { "name": "Contact us", "url": "contacts.html" },
+    "published": false
   }
 ]

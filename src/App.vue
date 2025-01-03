@@ -48,7 +48,6 @@ export default {
     async fetchData() {
       let res = await fetch('data.json');
       let data = await res.json();
-      console.log(data)
       this.pages = data;
     },
 
@@ -57,7 +56,7 @@ export default {
     },
     
     pageCreated(pageObj) {
-      console.log(pageObj);
+      this.pages.push(pageObj);
     }
   }
 }

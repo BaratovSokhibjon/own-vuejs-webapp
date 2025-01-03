@@ -7,7 +7,7 @@
                         <label for="" class="form-label">
                             Page Title
                         </label>
-                        <input type="text" class="form-control" v-model="pageTitle" :placeholder="titlePlaceholder" />
+                        <input type="text" class="form-control" v-model="title" :placeholder="titlePlaceholder" />
                     </div>
 
                     <div class="mb-3">
@@ -22,12 +22,12 @@
                 <div class="col">
                     <div class="my-3">
                         <label for="" class="form-label">Link Text</label>
-                        <input type="text" class="form-control" v-model="linkText">
+                        <input type="text" class="form-control" v-model="name">
                     </div>
 
                     <div class="mb-3">
                         <label for="" class="form-label">Link URL</label>
-                        <input type="text" class="form-control" v-model="linkURL">
+                        <input type="text" class="form-control" v-model="url">
                     </div>
 
                     <div class="row mb-3">
@@ -62,34 +62,43 @@ export default {
     },
     data() {
         return {
-            pageTitle: "",
+            title: "",
             content: "",
-            linkText: "",
-            linkURL: "",
+            name: "",
+            url: "",
             titlePlaceholder: "Page Title",
-            contentPlaceholder: "Page Content"
+            contentPlaceholder: "Page Content",
+            published: true
         }
     },
     methods: {
         submitForm() {
-            if (!this.pageTitle || !this.content || !this.linkText || !this.linkURL) {
+            if (!this.title || !this.content || !this.name || !this.url) {
                 alert("Please fill in the form");
                 return;
             }
 
             this.pageCreated({
-                title: this.pageTitle,
+                title: this.title,
                 content: this.content,
                 link: {
-                    text: this.linkText,
-                    url: this.linkURL
-                }
+                    name: this.name,
+                    url: this.url
+                },
+                published: this.published
             });
 
+            this.title =  "",
+            this.content =  "",
+            this.name =  "",
+            this.url =  "",
+            this.titlePlaceholder =  "Page Title",
+            this.contentPlaceholder =  "Page Content",
+            this.published =  true
         },
 
         isFormInvalid() {
-            return !this.pageTitle || !this.content || !this.linkText || !this.linkURL;
+            return !this.title || !this.content || !this.name || !this.url;
         }
     }
 }

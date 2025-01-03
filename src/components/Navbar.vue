@@ -9,7 +9,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <li v-for="(page, index) in pages" :key="index" class="nav-link">
+                    <li v-for="(page, index) in publishedPages" :key="index" class="nav-link">
                         <navbar-link :page="page" :is-active="activePage === index" @click.prevent="navLinkClick(index)" />
                     </li>
                 </div>
@@ -56,6 +56,12 @@ export default {
     data() {
         return {
             theme: 'light'
+        }
+    },
+
+    computed: {
+        publishedPages() {
+            return this.pages.filter(page => page.published);
         }
     },
 
